@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Sederhana</title>
+    <link rel="stylesheet" href="pc.css">
+    <link rel="website icon" type="url" href="https://fydn.imgix.net/m%2Fgen%2Fart-print-square-p1%2Fab9939f6-2e08-4832-8b3c-789991e75afb.jpg?auto=format%2Ccompress&q=75">
+    <script src="PC.JS"></script>
+    <script src="pu.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="box1 fade-in">
+            <div class="logo">LayananKami</div>
+            <nav>
+                <a href="pe.html" class="h1">Halaman 1</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container fade-in">
+
+        <div class="light" id="leftLightContainer" style="background-image: url('');">
+            <img id="leftLight" src="https://www.w3schools.com/js/pic_bulboff.gif" alt="Left Light">
+            <p id="leftStatus">Lampu Mati</p>
+            <p id="leftOnTime" style="display: none;">Waktu Nyala: </p>
+            <p id="leftOffTime" style="display: none;">Waktu Mati: </p>
+            <button class="tombol" id="leftButton" onclick="toggleLeftLight()">Nyalakan Lampu</button>
+        </div>
+
+        <div class="light1" id="rightLightContainer" style="background-image: url('');">
+            <img id="rightLight" src="https://www.w3schools.com/js/pic_bulboff.gif" alt="Right Light">
+            <p id="rightStatus">Lampu Mati</p>
+            <p id="rightOnTime" style="display: none;">Waktu Nyala: </p>
+            <p id="rightOffTime" style="display: none;">Waktu Mati: </p>
+            <div class="tengah">
+                <button class="tombol" onclick="toggleRightLight('on')">Nyalakan Lampu</button>
+                <button class="tombol" onclick="toggleRightLight('off')">Matikan Lampu</button>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="card-container fade-in">
+        <h2>Cek Umur</h2>
+        <div class="sec1">
+            <input class="plc" type="text" id="ageInput" placeholder="Masukkan Usia" oninput="validateAgeInput(this)" inputmode="numeric">
+            <button class="tombol1" onclick="checkAge()">Cek Umur</button>
+            <p id="ageResult"></p>
+        </div>
+    </div>
+
+
+    <div class="card-container fade-in">
+        <h2>Tebak Angka (1-10)</h2>
+        <div class="sec2">
+            <input class="plc" type="text" id="guessNumberInput" placeholder="Tebak Angka (1-10)" oninput="validateGuessInput(this)">
+            <button class="tom2" onclick="guessNumber()">Cek Tebakan</button>
+            <p id="guessResult"></p>
+        </div>
+    </div>
+
+    <div class="card-container">
+            <h2>Kalkulator Sederhana</h2>
+
+            <div class="flex">
+                <input type="number" id="num1" placeholder="Angka pertama">
+                <input type="number" id="num2" placeholder="Angka kedua">
+            </div>
+            <select id="operation">
+                <option value="add">+</option>
+                <option value="subtract">-</option>
+                <option value="multiply">*</option>
+                <option value="divide">/</option>
+            </select>
+
+            <button class="tom3"onclick="calculate()">Hitung</button>
+
+            <h3>Hasil: <span id="result">0</span></h3>
+        </div>
+    <script>
+        function calculate() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const operation = document.getElementById("operation").value;
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                result = "Masukkan angka yang valid";
+            } else {
+                switch (operation) {
+                    case "add":
+                        result = num1 + num2;
+                        break;
+                    case "subtract":
+                        result = num1 - num2;
+                        break;
+                    case "multiply":
+                        result = num1 * num2;
+                        break;
+                    case "divide":
+                        result = num2 !== 0 ? num1 / num2 : "Tidak bisa dibagi nol";
+                        break;
+                }
+            }
+
+            document.getElementById("result").textContent = result;
+        }
+    </script>
+   
+   
+    <div class="card-container fade-in">
+        <h2>Temperature Converter</h2>
+        <div class="sec4">
+            <input class="plc" type="text" id="tempInput" placeholder="Masukkan Suhu" oninput="validateTemperatureInput(this)">
+            <select class="plc" id="tempUnit">
+            <option value="CtoF">Celsius ke Fahrenheit</option>
+            <option value="FtoC">Fahrenheit ke Celsius</option>
+            <option value="CtoK">Celsius ke Kelvin</option>
+            <option value="KtoC">Kelvin ke Celsius</option>
+            <option value="FtoK">Fahrenheit ke Kelvin</option>
+            <option value="KtoF">Kelvin ke Fahrenheit</option>
+        </select>
+            <button class="tom4" onclick="convertTemperature()">Konversi</button>
+            <div class="hasil fade-in">
+                <span id="tempResult"></span>
+            </div>
+
+        </div>
+    </div>
+    
+    
+</body>
+
+</html>
